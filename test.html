@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;">
+    <title>Document</title>
+    <script type="text/javascript" src="./js/test.js"></script>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+    <button onclick="">
+        Get Hero
+    </button>
+    <div id="hero-cards"></div>
+    <img id="hero" src="images/the-flash-1.svg" width=200 alt="blank" />
+    <script >
+const getHeroCards = document.getElementById('hero-cards');
+
+const fetchHeroData = (item) => {
+        cNumber = item.id;
+        let apiUrl = `https://www.superheroapi.com/api.php/10230570277709138/${cNumber}`;
+        console.log(apiUrl);
+        return(fetch(apiUrl)
+        .then((response) => response.json())
+        .then(data => {
+            newHero = {"name": data.name, "id": data.id}
+            console.log(newHero);
+            const heroImage = document.createElement('img');
+            heroImage.src = data.image.url;
+            getHeroCards.append(heroImage);
+        }
+        )
+        .catch(error => {
+            console.log(error);
+        }))
+    }
+
+class NewnewCard {
+    constructor(id){
+        this.id = id;
+    }
+    fetchHero() {
+        let cNumber = this.id;
+        let apiUrl = `https://www.superheroapi.com/api.php/10230570277709138/${cNumber}`;
+        console.log(apiUrl);
+        return(fetch(apiUrl)
+        .then((response) => response.json())
+        .then(data => {
+            let newHero = {"name": data.name, "id": data.id}
+            const heroImage = document.createElement('img');
+            heroImage.src = data.image.url;
+            getHeroCards.append(heroImage);
+        }
+        )
+        .catch(error => {
+            console.log(error);
+        }))
+    }
+};
+
+const newTest = new NewnewCard(850);
+newTest.fetchHero();
+</script>
+</body>
+</html>
