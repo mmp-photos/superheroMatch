@@ -17,7 +17,7 @@
     "usemin": "usemin index.html -d dist --htmlmin -o dist/index.html",
     "outputcss": "sass css/*.scss",
     "build-webpack": "webpack --config webpack.config.js",
-    "build": "npm run clean && npm run imagemin && npm run copyfonts && npm run usemin && npm run scss-build && build-webpack"
+    "build": "npm run clean && npm run imagemin && npm run copyfonts && npm run usemin && npm run scss-build && npm run build-webpack"
   },
   "author": "Matthew Mayer",
   "license": "ISC",
