@@ -13,7 +13,7 @@
     "watch:all": "parallelshell 'npm run watch:scss' 'npm run lite'",
     "clean": "rimraf dist",
     "copyfonts": "copyfiles -f node_modules/font-awesome/fonts/* dist/fonts",
-    "copyjs": "copyfiles js/*.js dist/js",
+    "copyjs": "copyfiles js/*.js dist/",
     "imagemin": "imagemin images/* -o dist/images",
     "usemin": "usemin index.html -d dist --htmlmin -o dist/index.html",
     "outputcss": "sass css/*.scss",
