@@ -13,16 +13,19 @@
     "watch:all": "parallelshell 'npm run watch:scss' 'npm run lite'",
     "clean": "rimraf dist",
     "copyfonts": "copyfiles -f node_modules/font-awesome/fonts/* dist/fonts",
+    "copyjs": "copyfiles js/*.js dist/js",
     "imagemin": "imagemin images/* -o dist/images",
     "usemin": "usemin index.html -d dist --htmlmin -o dist/index.html",
     "outputcss": "sass css/*.scss",
-    "build-webpack": "webpack --config webpack.config.js",
-    "build": "npm run clean && npm run imagemin && npm run copyfonts && npm run usemin && npm run scss-build && npm run build-webpack"
+    "build": "npm run clean && npm run imagemin && npm run copyfonts && npm run usemin && npm run scss-build && npm run copyjs"
   },
   "author": "Matthew Mayer",
   "license": "ISC",
   "devDependencies": {
+    "@babel/preset-env": "^7.20.2",
+    "babel-loader": "^9.1.2",
     "copyfiles": "^2.2.0",
+    "html-webpack-plugin": "^5.5.0",
     "imagemin-cli": "^7.0.0",
     "lite-server": "^2.6.1",
     "onchange": "^7.0.0",
