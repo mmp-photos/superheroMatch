@@ -457,35 +457,10 @@ function restartClick() {
     secondClick = null;
 }
 
-function changeRating() {
-    // console.log(moves, "where are youuuuuuuuuuuuuuu???")
-    if (moves === 10) {
-        document.querySelector('.cup-gold').classList.remove('hide');
-        return true;
-    } else if (moves === 16) {
-        allStars[0].classList.add('hide')
-        allStars[3].classList.add('hide');
-        document.querySelector('.cup-silver').classList.remove('hide');
-        document.querySelector('.cup-gold').classList.add('hide');
-    } else if (moves === 20) {
-        allStars[1].classList.add('hide');
-        allStars[4].classList.add('hide');
-        document.querySelector('.cup-bronze').classList.remove('hide');
-        document.querySelector('.cup-silver').classList.add('hide');
-
-    }
-    // console.log(allStars, "are you my stars??!");
-}
-
-
 function moveCounter() {
     moves++;
     counter.innerHTML = moves;
     lastMoves.innerHTML = moves;
-// setting rates based on moves
-    if (moves <= 20 && moves !== 0) {
-        changeRating()
-    }
 }
 
 
@@ -536,10 +511,22 @@ function switchDeck(deck){
     }
     gameStart()
 
-    document.getElementById("deck-selector").classList.add('hide');
+    document.getElementById("deck-selector").style.display = "none";
     document.getElementById("card-deck").classList.remove('hide');
+    document.getElementById("selected-deck").textContent=deck;
+    document.getElementById("result").classList.add('hide');
+    document.getElementById("deck-modal").classList.add('hide');
+
     return selectedDeck;
 }
+
+function selectDeck() {
+    document.getElementById("deck-selector").style.display = "grid";
+    document.getElementById("deck-modal").classList.remove('hide');
+    document.getElementById("card-deck").classList.add('hide');
+    document.getElementById("result").classList.remove('show');
+    document.getElementById("result").classList.add('hide');
+};
 
 
 //****Game logic****
@@ -571,7 +558,7 @@ const pickACard = card => {
             startGame++;
         }
         let li = e.currentTarget;
-        console.log(li);
+        //console.log(li);
         //if the card is already open ignore it
         if (lock || li.classList.contains('open') && li.classList.contains('show')) {
             // console.log("this card is already open");
@@ -632,7 +619,7 @@ function updateImage(id){
     .then((response) => response.json())
     .then(data => {
         newHero = {"name": data.name, "id": data.id, "image": data.image.url}
-        console.log(newHero);
+        //console.log(newHero);
         replaceImage = document.getElementsByClassName("img"+id);
         replaceImage[0].src = newHero.image;
         replaceImage[1].src = newHero.image;

@@ -12,58 +12,8 @@
 
 </head>
 <body>
-    <button onclick="">
+    <button class="result">
         Get Hero
     </button>
-    <div id="hero-cards"></div>
-    <img id="hero" src="images/the-flash-1.svg" width=200 alt="blank" />
-    <script >
-const getHeroCards = document.getElementById('hero-cards');
-
-const fetchHeroData = (item) => {
-        cNumber = item.id;
-        let apiUrl = `https://www.superheroapi.com/api.php/10230570277709138/${cNumber}`;
-        console.log(apiUrl);
-        return(fetch(apiUrl)
-        .then((response) => response.json())
-        .then(data => {
-            newHero = {"name": data.name, "id": data.id}
-            console.log(newHero);
-            const heroImage = document.createElement('img');
-            heroImage.src = data.image.url;
-            getHeroCards.append(heroImage);
-        }
-        )
-        .catch(error => {
-            console.log(error);
-        }))
-    }
-
-class NewnewCard {
-    constructor(id){
-        this.id = id;
-    }
-    fetchHero() {
-        let cNumber = this.id;
-        let apiUrl = `https://www.superheroapi.com/api.php/10230570277709138/${cNumber}`;
-        console.log(apiUrl);
-        return(fetch(apiUrl)
-        .then((response) => response.json())
-        .then(data => {
-            let newHero = {"name": data.name, "id": data.id}
-            const heroImage = document.createElement('img');
-            heroImage.src = data.image.url;
-            getHeroCards.append(heroImage);
-        }
-        )
-        .catch(error => {
-            console.log(error);
-        }))
-    }
-};
-
-const newTest = new NewnewCard(850);
-newTest.fetchHero();
-</script>
 </body>
 </html>

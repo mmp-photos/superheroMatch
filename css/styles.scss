@@ -4,62 +4,47 @@ $black: black;
 $green: green;
 $orange: #F7B202;
 
-html {
-    box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-    box-sizing: inherit;
-}
-
-html,
 body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
     color: #fff;
     text-align: center;
-}
-
-body {
     background: black url('../images/923.jpg'); //Image by vector_corp on Freepik
     background-size: cover;
     font-family: 'Marvin', sans-serif;
     font-size: 1em; /*16px*/
 }
-
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+button {
+    background-color: transparent;
+    border: transparent;
 }
+.container-fluid{
+    padding: 0;
+ }
 
 header {
     position: sticky;
+    width:100%;
     display: flex;
-    justify-items: center;
     background: linear-gradient(to top, rgba(42, 44, 200, 0.93) 0%, rgba(53, 49, 190, 0.87) 58%, rgba(61, 53, 184, 0.83) 100%);
-    width: 100%;
-    margin-bottom: 12px;
     border-width: 0px 0px 4px 0px;
     border-style: solid;
     border-color: $orange;
+    margin-bottom: 32px;
 }
 h1 {
     font-weight: 300;
     color: $purple;
 }
-
+.primary-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /*
  * Styles for the deck of cards
  */
 
 .deck {
-    width: 42.5em; /*680px*/
+    width: 33.5em; /*680px*/
     min-height: 42.5em; /*680px*/
     background: linear-gradient(120deg, rgba(42, 44, 200, 0.63) 0%, rgba(61, 53, 184, 0.8) 100%);
     padding: 2em;  /*32px*/
@@ -67,14 +52,12 @@ h1 {
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
     align-items: center;
-    margin: 0 0 3em;
 }
 
 .deck .card {
-    height: 175px; /*125px*/
-    width: 125px;
+    height: 135px;
+    width: 110px;
     margin: 0.2rem 0.2rem;
     background: rgba(46, 61, 73, 0.9);
     font-size: 0;
@@ -139,14 +122,17 @@ h1 {
 /*modal section*/
 
 .pop-up {
+    position:fixed;
+    top: 0px;
+    left: 0px;
     z-index: 1000;
-    width: 100%;
-    height: 100%;
-    /*position: fixed;*/
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+    background-color: yellow;
+    opacity: 90%;
+    width: 100%;
+    height: 100%;
 }
 
 .hidden{
@@ -154,15 +140,18 @@ h1 {
 }
 
 .result {
-  position: absolute;
-    top: 22.62em;
-    left: 43.75em;
-    width: 500px;
-    max-width: 90vw;
-    background-color: #b0cee8;
-    box-shadow: 0 -1px 0 0.2em #646da8, 0 0.2em 0.2em 0 rgb(89, 167, 168);
+    position: fixed;
+    background-image: url('../images/speech_bubble.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: purple;
+    top: 85px;
+    width: 32.5em;
+    min-height: 32.5em;
     border-radius: 30px;
+    padding-top: 125px;
 }
+
 .fireworks {
     left: 0.5em;
     top: 5.5em;
@@ -185,31 +174,43 @@ input#btn-submit{
 }
 
 #deck-selector {
-    .deck {
-        width: 42.5em; /*680px*/
-        background: linear-gradient(120deg, rgba(42, 44, 200, 0.63) 0%, rgba(61, 53, 184, 0.8) 100%);
-        padding: 2em;  /*32px*/
-        border-radius: 10px;
-        box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        align-items: center;
-        margin: 0 0 3em;
-    }
+    position: relative;
+    margin-top: 64px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    width: 35.5em;
+    min-height: 20.5em;
+    background: linear-gradient(120deg, rgba(42, 44, 200, 0.63) 0%, rgba(61, 53, 184, 0.8) 100%);
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    text-align: center;
 }
 
 #deck-selector > ul {
-    width: 200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: center;
+    align-items: center;
     list-style-type: none;
+}
+#deck-selector > ul > li {
+    padding: .75em;
 }
 
 .select-deck {
-    max-width: 150px;
+    max-width: 100px;
     cursor: pointer;
-    margin: 35px;
 }
 
+.close {
+    position: absolute;
+    top: 6px;
+    right: 16px;
+}
 /*footer section*/
 
 footer {
@@ -270,18 +271,20 @@ footer .social {
     display: inline-block;
 }
 
-.score-panel .restart {
-    float: right;
+.restart {
     cursor: pointer;
     color: #fff;
-    background-color: rgba(173, 190, 225, 0.6);
     box-sizing: border-box;
-    outline: none;
+    outline: orange;
 
 }
 
 .timer {
     display: inline-block;
+    margin: 0 1rem;
+}
+.displayTime {
+    display: inline;
     margin: 0 1rem;
 }
 
@@ -388,4 +391,46 @@ footer .social {
     width: 95%;
     height: 95%;
     object-fit: cover;
+}
+
+.result > button {
+    background-image: url('../images/comic_bubble01.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 225px;
+    height: 130px;
+    border-width: 0px;
+    margin-top: 86px;
+    margin-right: 12px;
+}
+
+.result > button:hover {
+    background-image: url('../images/comic_bubble01_hover.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 225px;
+    height: 130px;
+    border-width: 0px;
+    margin-top: 86px;
+    margin-right: 12px;
+    color: white;
+}
+/*****UTILITY COLOR CLASSES*****/
+.orange {
+    color: $orange;
+}
+.bg-orange {
+    background-color: orange;
+}
+
+/*****UTILITY FONT CLASSES*****/
+.one-fifty {
+    font-size: 1.5em;
+}
+
+/*****UTILITY SPACING CLASSES****/
+.all-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
