@@ -6,12 +6,18 @@
   "scripts": {
     "lite": "lite-server",
     "scss": "sass css:css",
+    "scss-build": "sass css:dist/css",
     "start": "npm run watch:all",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch:scss": "onchange 'css/*.scss' -- npm run scss",
     "watch:all": "parallelshell 'npm run watch:scss' 'npm run lite'",
     "clean": "rimraf dist",
-    "copyfonts": "copyfiles -f node_modules/font-awesome/fonts/* dist/fonts"
+    "copyfonts": "copyfiles -f node_modules/font-awesome/fonts/* dist/fonts",
+    "imagemin": "imagemin images/* -o dist/images",
+    "usemin": "usemin index.html -d dist --htmlmin -o dist/index.html",
+    "outputcss": "sass css/*.scss",
+    "build-webpack": "webpack --config webpack.config.js",
+    "build": "npm run clean && npm run imagemin && npm run copyfonts && npm run usemin && npm run scss-build && build-webpack"
   },
   "author": "Matthew Mayer",
   "license": "ISC",
@@ -23,7 +29,9 @@
     "parallelshell": "3.0.1",
     "rimraf": "^3.0.2",
     "sass": "^1.54.0",
-    "usemin-cli": "^0.0.7"
+    "usemin-cli": "^0.0.7",
+    "webpack": "^5.76.3",
+    "webpack-cli": "^5.0.1"
   },
   "dependencies": {
     "bootstrap": "^5.3.0-alpha1",
