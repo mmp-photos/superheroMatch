@@ -367,6 +367,10 @@ footer .social {
         transform: scale3d(1, 1, 1);
     }
 }
+.rubberBandSnap {
+    animation-name: rubberBand;
+    animation-duration: .75s;
+}
 
 @keyframes pulse {
     from {
@@ -380,6 +384,21 @@ footer .social {
     to {
         transform: scale3d(1, 1, 1);
     }
+}
+
+@keyframes slide-up {
+    from {
+      margin-top: 100%;
+      height: 300%;
+    }
+    to {
+      margin-top: 0%;
+      height: 100%;
+    }
+  }
+
+.swipe-up {
+    animation: 1s slide-up;
 }
 
 #getHeroCards.hideImage > img {

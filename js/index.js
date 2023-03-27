@@ -212,6 +212,10 @@ const characterIds = [
         id: 622,
         auto: "Spider-Man (Miles Morales)"
     },
+    {   name: "stargirl",
+        id: 633,
+        auto: "Stargirl"
+    },
     {   name: "supergirl",
         id: 643,
         auto: "Supergirl"
@@ -354,7 +358,7 @@ console.log(avengersDeck);
 
 const girlPower = characterIds.filter(function (el){
     return el.name === "wonderWoman"
-            || el.name === "harleyQuinn"
+            || el.name === "stargirl"
             || el.name === "hawkgirl"
             || el.name === "supergirl"
             || el.name === "spiderGwen"
@@ -647,7 +651,13 @@ const pickACard = card => {
                 if (machedCard === 8) {
                     endOfGame()
                     modal.classList.remove('hide')
-                    modal.classList.add('showed')
+                    modal.classList.add('swipe-up');
+                    setInterval(() =>{
+                        document.getElementById('congrats').classList.remove("hide");
+                        document.getElementById('congrats').classList.add("showed");
+                        document.getElementById('congrats').classList.add("rubberBandSnap");
+                        console.log('Congratulations!!!!!!')
+                    }, 1500);
                 }
 
                 // console.log('Right Choice ');
@@ -735,3 +745,8 @@ Array.from(buttonRestart).forEach(el => {
         gameStart()
     })
 });
+
+function showResult() {
+    modal.classList.remove('hide');
+    modal.classList.add('showed');
+}
