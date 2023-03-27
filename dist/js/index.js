@@ -172,6 +172,10 @@ const characterIds = [
         id: 529,
         auto: "Psylocke"
     },
+    {   name: "riddler",
+        id: 558,
+        auto: "Riddler"
+    },
     {   name: "rogue",
         id: 567,
         auto: "Rogue"
@@ -191,6 +195,10 @@ const characterIds = [
     {   name: "sheHulk",
         id: 589,
         auto: "She Hulk"
+    },
+    {   name: "solomonGrundy",
+        id: 609,
+        auto: "Solomon Grundy"
     },
     {   name: "spiderGwen",
         id: 619,
@@ -275,6 +283,22 @@ batFamily.map(id => batFamilyDeck.push(id.id));
 batFamily.map(id => batFamilyDeck.push(id.id));
 
 //console.log(batFamily);
+
+const roguesGallery = characterIds.filter(function (el){
+    return el.name === "joker"
+            || el.name === "harleyQuinn"
+            || el.name === "scarecrow"
+            || el.name === "twoFace"
+            || el.name === "penquin"
+            || el.name === "poisonIvy"
+            || el.name === "solomonGrundy"
+            || el.name === "riddler"
+    }
+);
+
+let roguesDeck = [];
+roguesGallery.map(id => roguesDeck.push(id.id));
+roguesGallery.map(id => roguesDeck.push(id.id));
 
 const xMen = characterIds.filter(function (el){
     return el.name === "professorX"
@@ -530,6 +554,9 @@ function switchDeck(deck){
             break;
         case "legionOfDoom":
             selectedDeck = legionOfDoomDeck;
+            break;
+        case "roguesGallery":
+            selectedDeck = roguesDeck;
             break;
         case "girlpower":
             selectedDeck = girlPowerDeck;
