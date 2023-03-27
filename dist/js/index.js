@@ -244,6 +244,18 @@ const characterIds = [
         id: 105,
         auto: "Black Manta"
     },
+    {   name: "blackAdam",
+        id: 95,
+        auto: "Black Adam"
+    },
+    {   name: "sinestro",
+        id: 601,
+        auto: "Sinestro"
+    },
+    {   name: "bizarro",
+        id: 93,
+        auto: "Bizarro"
+    },
 ];
 
 const batFamily = characterIds.filter(function (el){
@@ -331,6 +343,20 @@ let girlPowerDeck = [];
 girlPower.map(id => girlPowerDeck.push(id.id))
 girlPower.map(id => girlPowerDeck.push(id.id))
 
+const legionOfDoom = characterIds.filter(function (el){
+    return el.name === "cheeta"
+            || el.name === "scarecrow"
+            || el.name === "blackManta"
+            || el.name === "lexLuthor"
+            || el.name === "joker"
+            || el.name === "blackAdam"
+            || el.name === "sinestro"
+            || el.name === "batgirl"
+    }
+);
+let legionOfDoomDeck = [];
+legionOfDoom.map(id => legionOfDoomDeck.push(id.id))
+girlPlegionOfDoomower.map(id => legionOfDoomDeck.push(id.id))
 
 const archEnemies = characterIds.filter(function (el){
     return el.name === "batman"
@@ -501,6 +527,9 @@ function switchDeck(deck){
             break;
         case "avengers":
             selectedDeck = avengersDeck;
+            break;
+        case "legionOfDoom":
+            selectedDeck = legionOfDoomDeck;
             break;
         case "girlpower":
             selectedDeck = girlPowerDeck;

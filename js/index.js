@@ -356,7 +356,7 @@ const legionOfDoom = characterIds.filter(function (el){
 );
 let legionOfDoomDeck = [];
 legionOfDoom.map(id => legionOfDoomDeck.push(id.id))
-girlPlegionOfDoomower.map(id => legionOfDoomDeck.push(id.id))
+legionOfDoom.map(id => legionOfDoomDeck.push(id.id))
 
 const archEnemies = characterIds.filter(function (el){
     return el.name === "batman"
