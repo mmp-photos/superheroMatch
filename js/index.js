@@ -17,7 +17,7 @@ const characterIds = [
         auto: "Batman"
     },
     {   name: "cheeta",
-        id:172,
+        id:174,
         auto: "Cheeta"
     },
     {   name: "robin",
@@ -351,7 +351,7 @@ const legionOfDoom = characterIds.filter(function (el){
             || el.name === "joker"
             || el.name === "blackAdam"
             || el.name === "sinestro"
-            || el.name === "batgirl"
+            || el.name === "bizarro"
     }
 );
 let legionOfDoomDeck = [];
